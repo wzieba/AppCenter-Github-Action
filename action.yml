@@ -1,0 +1,31 @@
+name: 'App Center'
+description: 'GitHub Action that uploads artefacts for Visual Studio App Center'
+author: 'Wojciech Zięba <@wzieba>'
+inputs: 
+  appName:
+    description: 'App name followed by username e.g. wzieba/Sample-App'
+    required: true 
+  token:
+    description: 'Upload token - you can get one from appcenter.ms/settings'
+    required: true 
+  group:
+    description: 'Distribution group'
+    required: true
+  file:
+    description: 'Artefact to upload (.apk or .ipa)'
+    required: true
+  releaseNotes:
+    description: 'Release notes visible on release page'
+    required: false
+branding:
+  color: 'red' 
+  icon: 'send'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.appName }}
+    - ${{ inputs.token }}
+    - ${{ inputs.group }}
+    - ${{ inputs.file }}
+    - ${{ inputs.releaseNotes }}
