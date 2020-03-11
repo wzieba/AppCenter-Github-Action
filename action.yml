@@ -23,9 +23,3 @@ branding:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.appName }}
-    - ${{ inputs.token }}
-    - ${{ inputs.group }}
-    - ${{ inputs.file }}
-    - ${{ inputs.releaseNotes }}
