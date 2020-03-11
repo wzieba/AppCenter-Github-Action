@@ -1,4 +1,4 @@
-name: Example workflow for App Center action
+name: Sample workflow for App Center action
 on: [push]
 jobs:
   run:
@@ -13,5 +13,5 @@ jobs:
         with:
           appName: ${{secrets.APP_NAME}} 
           token: ${{secrets.API_TOKEN}} 
-          group: Test Group 
+          group: Collaborators 
           file: ApiDemos-debug.apk 
