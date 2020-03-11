@@ -12,6 +12,6 @@ jobs:
         uses: ./
         with:
           appName: ${{secrets.APP_NAME}} 
-          token: Test Token
+          token: ${{secrets.API_TOKEN}} 
           group: Test Group 
           file: ApiDemos-debug.apk 
