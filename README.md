@@ -1,6 +1,6 @@
 # App Center Github Action
 
-<a href="https://github.com/wzieba/AppCenter-Github-Action/actions">![](https://github.com/wzieba/AppCenter-Github-Action/workflows/Sample%20workflow%20for%20Firebase%20Distribution%20action/badge.svg)</a>
+![Sample workflow for App Center action](https://github.com/wzieba/AppCenter-Github-Action/workflows/Sample%20workflow%20for%20App%20Center%20action/badge.svg?branch=master)
 <a href="https://github.com/wzieba/AppCenter-Github-Action/releases">![](https://img.shields.io/github/v/release/wzieba/AppCenter-Github-Action)</a>
 
 This action uploads artefacts (.apk or .ipa) to Visual Studio App Center.
