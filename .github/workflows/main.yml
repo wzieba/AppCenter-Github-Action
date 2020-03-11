@@ -1,4 +1,4 @@
-name: Example workflow for App Center action
+name: Sample workflow for App Center action
 on: [push]
 jobs:
   run:
@@ -6,10 +6,12 @@ jobs:
     steps:
       - name: Checkout 
         uses: actions/checkout@master
+      - name: Get sample .apk for test purposes
+        run: wget https://github.com/appium/appium/raw/master/sample-code/apps/ApiDemos-debug.apk
       - name: Upload artefact to AppCenter  
         uses: ./
         with:
-          appName: Test Name 
-          token: Test Token
-          group: Test Group 
-          file: Test File
+          appName: ${{secrets.APP_NAME}} 
+          token: ${{secrets.API_TOKEN}} 
+          group: Collaborators 
+          file: ApiDemos-debug.apk 
