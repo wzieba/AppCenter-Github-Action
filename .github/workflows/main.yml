@@ -7,7 +7,7 @@ jobs:
       - name: Checkout 
         uses: actions/checkout@master
       - name: Get sample .apk for test purposes
-        run: wget https://github.com/appium/appium/raw/master/sample-code/apps/ApiDemos-debug.apk
+        run: wget --output-document ApiDemos-debug.apk https://github.com/appium/appium/blob/906350fd335f9485376214fdd17c7cdb6c9ff26b/sample-code/apps/ApiDemos-debug.apk?raw=true
       - name: Upload artefact to AppCenter  
         uses: ./
         with:
