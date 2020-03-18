@@ -4,14 +4,30 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 
+      - name: Checkout
         uses: actions/checkout@master
       - name: Get sample .apk for test purposes
         run: wget --output-document ApiDemos-debug.apk https://github.com/appium/appium/blob/906350fd335f9485376214fdd17c7cdb6c9ff26b/sample-code/apps/ApiDemos-debug.apk?raw=true
-      - name: Upload artefact to AppCenter  
+      - name: Upload artefact with provided release notes
         uses: ./
         with:
-          appName: ${{secrets.APP_NAME}} 
-          token: ${{secrets.API_TOKEN}} 
-          group: Collaborators 
-          file: ApiDemos-debug.apk 
+          appName: ${{secrets.APP_NAME}}
+          token: ${{secrets.API_TOKEN}}
+          group: Collaborators
+          file: ApiDemos-debug.apk
+          releaseNotes: New bugs
+      - name: Upload artefact with empty release notes
+        uses: ./
+        with:
+          appName: ${{secrets.APP_NAME}}
+          token: ${{secrets.API_TOKEN}}
+          group: Collaborators
+          file: ApiDemos-debug.apk
+      - name: Upload artefact with GIT generated release notes
+        uses: ./
+        with:
+          appName: ${{secrets.APP_NAME}}
+          token: ${{secrets.API_TOKEN}}
+          group: Collaborators
+          file: ApiDemos-debug.apk
+          gitReleaseNotes: true
