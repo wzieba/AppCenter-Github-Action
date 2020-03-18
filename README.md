@@ -28,11 +28,15 @@ This action uploads artefacts (.apk or .ipa) to Visual Studio App Center.
 Release notes visible on release page
 
 
+### `gitReleaseNotes`
+
+Generate release notes based on the latest git commit
+
 
 ## Example usage
 
 ```
-name: Build, code quality, tests 
+name: Build, code quality, tests
 
 on: [push]
 
@@ -47,7 +51,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: build release 
+    - name: build release
       run: ./gradlew assembleRelease
     - name: upload artefact to App Center
       uses: wzieba/App-Center-action@v1.0.0

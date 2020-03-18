@@ -1,13 +1,13 @@
 name: 'App Center'
 description: 'GitHub Action that uploads artefacts for Visual Studio App Center'
 author: 'Wojciech Zięba <@wzieba>'
-inputs: 
+inputs:
   appName:
     description: 'App name followed by username e.g. wzieba/Sample-App'
-    required: true 
+    required: true
   token:
     description: 'Upload token - you can get one from appcenter.ms/settings'
-    required: true 
+    required: true
   group:
     description: 'Distribution group'
     required: true
@@ -16,6 +16,9 @@ inputs:
     required: true
   releaseNotes:
     description: 'Release notes visible on release page'
+    required: false
+  gitReleaseNotes:
+    description: "Generate release notes based on the latest git commit"
     required: false
 branding:
   color: 'red' 
