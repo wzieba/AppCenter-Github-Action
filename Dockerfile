@@ -3,7 +3,7 @@ FROM node:12.10.0-alpine
 WORKDIR /app
 COPY . /app
 
-RUN npm install -g appcenter-cli \
+RUN npm install -g appcenter-cli@2.5.4 \
     && apk update \
     && apk add git 
 
