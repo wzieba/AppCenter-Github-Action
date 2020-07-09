@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 RELEASE_NOTES=""
 isFirst=true
 releaseId=""
