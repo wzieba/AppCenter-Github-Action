@@ -27,11 +27,13 @@ This action uploads artefacts (.apk or .ipa) to Visual Studio App Center.
 
 Release notes visible on release page
 
-
 ### `gitReleaseNotes`
 
 Generate release notes based on the latest git commit
 
+### `notifyTesters`
+
+If set to true, an email notification is sent to the distribution group
 
 ## Example usage
 
@@ -60,4 +62,5 @@ jobs:
         token: ${{secrets.APP_CENTER_TOKEN}}
         group: Testers
         file: app/build/outputs/apk/release/app-release-unsigned.apk
+        notifyTesters: true
 ```
