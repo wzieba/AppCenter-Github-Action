@@ -35,7 +35,12 @@ Generate release notes based on the latest git commit
 
 If set to true, an email notification is sent to the distribution group
 
-## Example usage
+## Requirements
+
+This action is Docker-based. It means **it can only execute on runners with a Linux operating system**.
+See Github Actions [documentation](https://docs.github.com/en/actions/creating-actions/about-actions#docker-container-actions) for details.
+
+## Sample usage
 
 ```
 name: Build, code quality, tests
@@ -64,3 +69,4 @@ jobs:
         file: app/build/outputs/apk/release/app-release-unsigned.apk
         notifyTesters: true
 ```
+
