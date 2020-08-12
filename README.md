@@ -3,7 +3,7 @@
 ![Sample workflow for App Center action](https://github.com/wzieba/AppCenter-Github-Action/workflows/Sample%20workflow%20for%20App%20Center%20action/badge.svg?branch=master)
 <a href="https://github.com/wzieba/AppCenter-Github-Action/releases">![](https://img.shields.io/github/v/release/wzieba/AppCenter-Github-Action)</a>
 
-This action uploads artefacts (.apk or .ipa) to Visual Studio App Center.
+This action uploads artifacts (.apk or .ipa) to Visual Studio App Center.
 
 ## Inputs
 
@@ -21,7 +21,7 @@ This action uploads artefacts (.apk or .ipa) to Visual Studio App Center.
 
 ### `file`
 
-**Required** Artefact to upload (.apk or .ipa)
+**Required** Artifact to upload (.apk or .ipa)
 
 ### `releaseNotes`
 
@@ -56,7 +56,7 @@ jobs:
     - name: build release
       run: ./gradlew assembleRelease
     - name: upload artefact to App Center
-      uses: wzieba/AppCenter-Github-Action@v1.1.1
+      uses: wzieba/AppCenter-Github-Action@v1
       with:
         appName: wzieba/Sample-App
         token: ${{secrets.APP_CENTER_TOKEN}}

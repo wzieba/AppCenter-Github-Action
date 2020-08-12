@@ -1,5 +1,5 @@
 name: Sample workflow for App Center action
-on: [push]
+on: [push, pull_request, workflow_dispatch]
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -8,7 +8,7 @@ jobs:
         uses: actions/checkout@master
       - name: Get sample .apk for test purposes
         run: wget --output-document ApiDemos-debug.apk https://github.com/appium/appium/blob/906350fd335f9485376214fdd17c7cdb6c9ff26b/sample-code/apps/ApiDemos-debug.apk?raw=true
-      - name: Upload artefact with provided release notes
+      - name: Upload artifact with provided release notes
         uses: ./
         with:
           appName: ${{secrets.APP_NAME}}
@@ -16,14 +16,14 @@ jobs:
           group: Collaborators
           file: ApiDemos-debug.apk
           releaseNotes: New bugs
-      - name: Upload artefact with empty release notes
+      - name: Upload artifact with empty release notes
         uses: ./
         with:
           appName: ${{secrets.APP_NAME}}
           token: ${{secrets.API_TOKEN}}
           group: Collaborators
           file: ApiDemos-debug.apk
-      - name: Upload artefact with GIT generated release notes
+      - name: Upload artifact with Git generated release notes
         uses: ./
         with:
           appName: ${{secrets.APP_NAME}}
@@ -31,3 +31,12 @@ jobs:
           group: Collaborators
           file: ApiDemos-debug.apk
           gitReleaseNotes: true
+      - name: Upload artifact and notify testers
+        uses: ./
+        with:
+          appName: ${{secrets.APP_NAME}}
+          token: ${{secrets.API_TOKEN}}
+          group: Collaborators
+          file: ApiDemos-debug.apk
+          notifyTesters: true
+
