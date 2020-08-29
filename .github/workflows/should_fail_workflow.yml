@@ -1,0 +1,18 @@
+name: Test workflow that SHOULD fail
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Get sample .apk for test purposes
+        run: wget --output-document ApiDemos-debug.apk https://github.com/appium/appium/blob/906350fd335f9485376214fdd17c7cdb6c9ff26b/sample-code/apps/ApiDemos-debug.apk?raw=true
+      - name: (Should fail) Upload artifact without token
+        uses: ./
+        with:
+          appName: ${{secrets.APP_NAME}}
+          group: Collaborators
+          file: ApiDemos-debug.apk
+          releaseNotes: New bugs
+
