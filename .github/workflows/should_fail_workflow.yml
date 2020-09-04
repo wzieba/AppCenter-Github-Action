@@ -1,0 +1,44 @@
+name: Test workflow that verifies the action fails on error
+on: [ push, pull_request, workflow_dispatch ]
+jobs:
+  should-fail:
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Get sample .apk for test purposes
+        run: wget --output-document ApiDemos-debug.apk https://github.com/appium/appium/blob/906350fd335f9485376214fdd17c7cdb6c9ff26b/sample-code/apps/ApiDemos-debug.apk?raw=true
+      - name: (Should fail) Upload artifact without token
+        uses: ./
+        with:
+          appName: ${{ secrets.APP_NAME }}
+          group: Collaborators
+          file: ApiDemos-debug.apk
+          releaseNotes: New bugs
+      - name: Create file 'JOB_FAILED.TXT' and write 'true' into it
+        if: ${{ failure() }}
+        run: echo 'true' > JOB_FAILED.TXT
+      - name: Upload file 'JOB_FAILED.TXT' as an artifact
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: pass_file
+          path: JOB_FAILED.TXT
+  check-failure:
+    needs: [ should-fail ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download file 'JOB_FAILED.TXT' from artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: pass_file
+          path: pass_file
+      - id: set_output
+        name: Read file 'JOB_FAILED.TXT' and set output parameter
+        run: echo "::set-output name=JOB_FAILED::$(<pass_file/JOB_FAILED.TXT)"
+      - name: Run steps of Job Three
+        if: steps.set_output.outputs.JOB_FAILED != 'true'
+        run: exit 1
+
+
