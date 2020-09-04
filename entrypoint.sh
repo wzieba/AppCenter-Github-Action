@@ -5,6 +5,7 @@ releaseId=""
 export IFS=";"
 params=()
 [ "${INPUT_NOTIFYTESTERS}" != true ] && params+=(--silent)
+[ "${INPUT_DEBUG}" == true ] && params+=(--debug)
 if [ -n "${INPUT_RELEASENOTES}" ]; then
     RELEASE_NOTES=${INPUT_RELEASENOTES}
 elif [ $INPUT_GITRELEASENOTES ]; then

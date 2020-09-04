@@ -23,6 +23,10 @@ inputs:
   notifyTesters:
     description: "If true, send an email notification to the distribution group"
     required: false
+  debug:
+    description: "If true, shows additional information from the action execution"
+    required: false
+    default: false
 branding:
   color: "red"
   icon: "send"

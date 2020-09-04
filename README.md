@@ -35,6 +35,10 @@ Generate release notes based on the latest git commit
 
 If set to true, an email notification is sent to the distribution group
 
+### `debug`
+
+If set to true, shows useful debug information from the action execution.
+
 ## Requirements
 
 This action is Docker-based. It means **it can only execute on runners with a Linux operating system**.
@@ -68,5 +72,6 @@ jobs:
         group: Testers
         file: app/build/outputs/apk/release/app-release-unsigned.apk
         notifyTesters: true
+        debug: false
 ```
 
