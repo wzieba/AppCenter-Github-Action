@@ -9,7 +9,7 @@ This action uploads artifacts (.apk or .ipa) to Visual Studio App Center.
 
 ### `appName`
 
-**Required** App name followed by username e.g. `wzieba/Sample-App`
+**Required** App name preceded by the App Center's username e.g. wzieba/Sample-App
 
 ### `token`
 
@@ -23,9 +23,17 @@ This action uploads artifacts (.apk or .ipa) to Visual Studio App Center.
 
 **Required** Artifact to upload (.apk or .ipa)
 
+### `mappings`
+
+Android mappings.txt file location. See [the documentation](https://developer.android.com/studio/build/shrink-code) for details
+
+### `symbols`
+
+iOS debug symbol file (.dSYM) location. See [the documentation](https://docs.microsoft.com/en-us/appcenter/diagnostics/ios-symbolication) for details
+
 ### `releaseNotes`
 
-Release notes visible on release page
+Release notes visible on App Center's Release page
 
 ### `gitReleaseNotes`
 
@@ -46,6 +54,7 @@ See Github Actions [documentation](https://docs.github.com/en/actions/creating-a
 
 ## Sample usage
 
+Android:
 ```
 name: Build, code quality, tests
 
@@ -71,7 +80,37 @@ jobs:
         token: ${{secrets.APP_CENTER_TOKEN}}
         group: Testers
         file: app/build/outputs/apk/release/app-release-unsigned.apk
+        mappings: app/build/outputs/mappings/release/mappings.txt
         notifyTesters: true
         debug: false
 ```
 
+iOS
+```
+name: Build, code quality, tests
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: build release
+      run: ./gradlew assembleRelease
+    - name: upload artefact to App Center
+      uses: wzieba/AppCenter-Github-Action@v1
+      with:
+        appName: wzieba/Sample-App
+        token: ${{secrets.APP_CENTER_TOKEN}}
+        group: Testers
+        file: path/to/iOS.ipa
+        symbols: path/to/crash_symbols.dSYM
+        notifyTesters: true
+```

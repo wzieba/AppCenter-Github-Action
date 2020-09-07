@@ -3,7 +3,7 @@ description: "GitHub Action that uploads artefacts for Visual Studio App Center"
 author: "Wojciech Zięba <@wzieba>"
 inputs:
   appName:
-    description: "App name followed by username e.g. wzieba/Sample-App"
+    description: "App name preceded by the App Center's username e.g. wzieba/Sample-App"
     required: true
   token:
     description: "Upload token - you can get one from appcenter.ms/settings"
@@ -22,6 +22,12 @@ inputs:
     required: false
   notifyTesters:
     description: "If true, send an email notification to the distribution group"
+    required: false
+  mappings:
+    description: "Android mappings.txt file location"
+    required: false
+  symbols:
+    description: "iOS debug symbol file (.dSYM) location."
     required: false
   debug:
     description: "If true, shows additional information from the action execution"
