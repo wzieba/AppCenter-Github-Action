@@ -39,4 +39,12 @@ jobs:
           group: Collaborators
           file: ApiDemos-debug.apk
           notifyTesters: true
+      - name: Upload artifact with a debug flag
+        uses: ./
+        with:
+          appName: ${{secrets.APP_NAME}}
+          token: ${{secrets.API_TOKEN}}
+          group: Collaborators
+          file: ApiDemos-debug.apk
+          debug: true
 
