@@ -11,6 +11,15 @@ if [ -n "${INPUT_RELEASENOTES}" ]; then
 elif [ $INPUT_GITRELEASENOTES ]; then
     RELEASE_NOTES="$(git log -1 --pretty=short)"
 fi
+
+if [ -n "${INPUT_BUILDVERSION}" ]; then
+    params+=(--build-version "$INPUT_BUILDVERSION")
+fi
+
+if [ -n "${INPUT_BUILDNUMBER}" ]; then
+    params+=(--build-number "$INPUT_BUILDNUMBER")
+fi
+
 for group in $INPUT_GROUP; do
     if ${isFirst} ; then
         isFirst=false
