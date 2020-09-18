@@ -23,6 +23,12 @@ This action uploads artifacts (.apk or .ipa) to Visual Studio App Center.
 
 **Required** Artifact to upload (.apk or .ipa)
 
+### `buildVersion`
+Build version parameter required for .zip, .msi, .pkg and .dmg files
+
+### buildNumber
+Build number parameter required for macOS .pkg and .dmg files
+
 ### `releaseNotes`
 
 Release notes visible on release page
@@ -74,4 +80,3 @@ jobs:
         notifyTesters: true
         debug: false
 ```
-
