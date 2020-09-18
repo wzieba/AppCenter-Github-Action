@@ -27,7 +27,7 @@ This action uploads artifacts (.apk or .ipa) to Visual Studio App Center.
 Build version parameter required for .zip, .msi, .pkg and .dmg files
 
 ### buildNumber
-  "Build number parameter required for macOS .pkg and .dmg files"
+Build number parameter required for macOS .pkg and .dmg files
 
 ### `releaseNotes`
 
