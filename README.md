@@ -9,7 +9,7 @@ This action uploads artifacts (.apk or .ipa) to Visual Studio App Center.
 
 ### `appName`
 
-**Required** App name followed by username e.g. `wzieba/Sample-App`
+**Required** username followed by App name e.g. `wzieba/Sample-App`
 
 ### `token`
 
