@@ -14,6 +14,12 @@ inputs:
   file:
     description: "Artefact to upload (.apk or .ipa)"
     required: true
+  buildVersion:
+    description: "Build version parameter required for .zip, .msi, .pkg and .dmg files"
+    required: false
+  buildNumber:
+    description: "Build number parameter required for macOS .pkg and .dmg files"
+    required: false
   releaseNotes:
     description: "Release notes visible on release page"
     required: false

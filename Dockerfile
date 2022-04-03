@@ -3,7 +3,7 @@ FROM node:14
 WORKDIR /app
 COPY . /app
 
-RUN npm install -g appcenter-cli@2.5.4
+RUN npm install -g appcenter-cli@2.7.3
 
 RUN mkdir -p /usr/local/lib/aapt/
 RUN wget -q "https://dl.google.com/dl/android/maven2/com/android/tools/build/aapt2/4.0.1-6197926/aapt2-4.0.1-6197926-linux.jar" -O aapt2-all.jar \

@@ -9,7 +9,7 @@ This action uploads artifacts (.apk or .ipa) to Visual Studio App Center.
 
 ### `appName`
 
-**Required** App name preceded by the App Center's username e.g. wzieba/Sample-App
+**Required** User name preceded by the App Center's username e.g. wzieba/Sample-App
 
 ### `token`
 
@@ -30,6 +30,14 @@ Android mappings.txt file location. See [the documentation](https://developer.an
 ### `symbols`
 
 iOS debug symbol file (.dSYM) location. See [the documentation](https://docs.microsoft.com/en-us/appcenter/diagnostics/ios-symbolication) for details
+
+### `buildVersion`
+
+Build version parameter required for .zip, .msi, .pkg and .dmg files
+
+### buildNumber
+
+Build number parameter required for macOS .pkg and .dmg files
 
 ### `releaseNotes`
 
@@ -85,7 +93,7 @@ jobs:
         debug: false
 ```
 
-iOS
+iOS:
 ```
 name: Build, code quality, tests
 
