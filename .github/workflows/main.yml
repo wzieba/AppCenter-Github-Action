@@ -1,13 +1,15 @@
 name: Sample workflow for App Center action
 on: [push, pull_request, workflow_dispatch, pull_request_target]
 jobs:
-  run:
+  android:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
       - name: Get sample .apk for test purposes
-        run: wget --output-document ApiDemos-debug.apk https://github.com/appium/appium/blob/906350fd335f9485376214fdd17c7cdb6c9ff26b/sample-code/apps/ApiDemos-debug.apk?raw=true
+        run: wget https://github.com/appium/appium/blob/906350fd335f9485376214fdd17c7cdb6c9ff26b/sample-code/apps/ApiDemos-debug.apk?raw=true -O ApiDemos-debug.apk
+      - name: Get sample mappings.txt file for test purposes
+        run: wget https://gist.githubusercontent.com/loopj/43a4a3231f32c17ab9e3/raw/2181ad9ae926cd3d46ee9becabcb0cce668ef9c0/mapping.txt -O mappings.txt
       - name: Upload artifact with provided release notes
         uses: ./
         with:
@@ -47,4 +49,29 @@ jobs:
           group: Collaborators
           file: ApiDemos-debug.apk
           debug: true
-
+      - name: Upload apk artifact with mappings file
+        uses: ./
+        with:
+          appName: ${{ secrets.APP_NAME }}
+          token: ${{ secrets.API_TOKEN }}
+          group: Collaborators
+          file: ApiDemos-debug.apk
+          mappings: mappings.txt
+          releaseNotes: Has mappings
+          debug: true
+  ios:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get sample .ipa file for test purposes
+        run: wget https://github.com/bitbar/test-samples/blob/master/apps/ios/bitbar-ios-sample.ipa?raw=true -O sample-ios-app.ipa
+      - name: Upload ipa artifact with symbols file
+        uses: ./
+        with:
+          appName: ${{ secrets.IOS_APP_NAME }}
+          token: ${{ secrets.IOS_API_TOKEN }}
+          group: Collaborators
+          file: sample-ios-app.ipa
+          releaseNotes: Has symbols
+          debug: true
