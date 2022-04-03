@@ -13,7 +13,7 @@ jobs:
       - name: Upload artifact with provided release notes
         uses: ./
         with:
-          appName: ${{secrets.APP_NAME}}
+          appName: ${{secrets.ANDROID_APP_NAME}}
           token: ${{secrets.API_TOKEN}}
           group: Collaborators
           file: ApiDemos-debug.apk
@@ -21,14 +21,14 @@ jobs:
       - name: Upload artifact with empty release notes
         uses: ./
         with:
-          appName: ${{secrets.APP_NAME}}
+          appName: ${{secrets.ANDROID_APP_NAME}}
           token: ${{secrets.API_TOKEN}}
           group: Collaborators
           file: ApiDemos-debug.apk
       - name: Upload artifact with Git generated release notes
         uses: ./
         with:
-          appName: ${{secrets.APP_NAME}}
+          appName: ${{secrets.ANDROID_APP_NAME}}
           token: ${{secrets.API_TOKEN}}
           group: Collaborators
           file: ApiDemos-debug.apk
@@ -36,7 +36,7 @@ jobs:
       - name: Upload artifact and notify testers
         uses: ./
         with:
-          appName: ${{secrets.APP_NAME}}
+          appName: ${{secrets.ANDROID_APP_NAME}}
           token: ${{secrets.API_TOKEN}}
           group: Collaborators
           file: ApiDemos-debug.apk
@@ -44,7 +44,7 @@ jobs:
       - name: Upload artifact with a debug flag
         uses: ./
         with:
-          appName: ${{secrets.APP_NAME}}
+          appName: ${{secrets.ANDROID_APP_NAME}}
           token: ${{secrets.API_TOKEN}}
           group: Collaborators
           file: ApiDemos-debug.apk
@@ -52,7 +52,7 @@ jobs:
       - name: Upload apk artifact with mappings file
         uses: ./
         with:
-          appName: ${{ secrets.APP_NAME }}
+          appName: ${{ secrets.ANDROID_APP_NAME }}
           token: ${{ secrets.API_TOKEN }}
           group: Collaborators
           file: ApiDemos-debug.apk
@@ -70,7 +70,7 @@ jobs:
         uses: ./
         with:
           appName: ${{ secrets.IOS_APP_NAME }}
-          token: ${{ secrets.IOS_API_TOKEN }}
+          token: ${{ secrets.API_TOKEN }}
           group: Collaborators
           file: sample-ios-app.ipa
           releaseNotes: Has symbols
