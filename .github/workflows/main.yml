@@ -5,13 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
       - name: Get sample .apk for test purposes
         run: wget --output-document ApiDemos-debug.apk https://github.com/appium/appium/blob/906350fd335f9485376214fdd17c7cdb6c9ff26b/sample-code/apps/ApiDemos-debug.apk?raw=true
       - name: Upload artifact with provided release notes
         uses: ./
         with:
-          appName: ${{secrets.APP_NAME}}
+          appName: ${{secrets.ANDROID_APP_NAME}}
           token: ${{secrets.API_TOKEN}}
           group: Collaborators
           file: ApiDemos-debug.apk
@@ -19,14 +19,14 @@ jobs:
       - name: Upload artifact with empty release notes
         uses: ./
         with:
-          appName: ${{secrets.APP_NAME}}
+          appName: ${{secrets.ANDROID_APP_NAME}}
           token: ${{secrets.API_TOKEN}}
           group: Collaborators
           file: ApiDemos-debug.apk
       - name: Upload artifact with Git generated release notes
         uses: ./
         with:
-          appName: ${{secrets.APP_NAME}}
+          appName: ${{secrets.ANDROID_APP_NAME}}
           token: ${{secrets.API_TOKEN}}
           group: Collaborators
           file: ApiDemos-debug.apk
@@ -34,7 +34,7 @@ jobs:
       - name: Upload artifact and notify testers
         uses: ./
         with:
-          appName: ${{secrets.APP_NAME}}
+          appName: ${{secrets.ANDROID_APP_NAME}}
           token: ${{secrets.API_TOKEN}}
           group: Collaborators
           file: ApiDemos-debug.apk
@@ -42,7 +42,7 @@ jobs:
       - name: Upload artifact with a debug flag
         uses: ./
         with:
-          appName: ${{secrets.APP_NAME}}
+          appName: ${{secrets.ANDROID_APP_NAME}}
           token: ${{secrets.API_TOKEN}}
           group: Collaborators
           file: ApiDemos-debug.apk
