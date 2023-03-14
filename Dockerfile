@@ -3,7 +3,7 @@ FROM node:12.10.0-alpine
 WORKDIR /app
 COPY . /app
 
-RUN npm install -g appcenter-cli@2.10.10 \
+RUN npm install -g appcenter-cli@2.13.2 \
     && apk update \
     && apk add git \
     && apk add bash
