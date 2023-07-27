@@ -1,5 +1,5 @@
 name: Sample workflow for App Center action
-on: [push, pull_request, workflow_dispatch, pull_request_target]
+on: [push, pull_request, workflow_dispatch]
 jobs:
   run:
     runs-on: ubuntu-latest
