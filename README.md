@@ -19,6 +19,10 @@ This action uploads artifacts (.apk or .ipa) to Visual Studio App Center.
 
 **Required** Distribution group (or multiple groups split by **;** delimiter)
 
+### `appstore`
+
+App Store (or multiple stores split by **;** delimiter)
+
 ### `file`
 
 **Required** Artifact to upload (.apk or .ipa)
