@@ -11,6 +11,9 @@ inputs:
   group:
     description: "Distribution group"
     required: true
+  appstore:
+    description: "App Store"
+    required: false
   file:
     description: "Artefact to upload (.apk or .ipa)"
     required: true
