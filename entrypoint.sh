@@ -24,7 +24,7 @@ if [ -n "${INPUT_BUILDNUMBER}" ]; then
     params+=(--build-number "$INPUT_BUILDNUMBER")
 fi
 
-for group in $INPUT_GROUP; do
+for group in "$INPUT_GROUP"; do
     if ${isFirst} ; then
         isFirst=false
         appcenter distribute release --token "$INPUT_TOKEN" --app "$INPUT_APPNAME" --group $group --file "$INPUT_FILE" --release-notes "$RELEASE_NOTES" "${params[@]}"
