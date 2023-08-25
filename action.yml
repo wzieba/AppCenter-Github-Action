@@ -1,4 +1,4 @@
-name: "App Center"
+name: "App Center Distribute"
 description: "GitHub Action that uploads artefacts for Visual Studio App Center"
 author: "Wojciech Zięba <@wzieba>"
 inputs:
