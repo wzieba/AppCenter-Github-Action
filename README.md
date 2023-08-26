@@ -24,9 +24,11 @@ This action uploads artifacts (.apk or .ipa) to Visual Studio App Center.
 **Required** Artifact to upload (.apk or .ipa)
 
 ### `buildVersion`
+
 Build version parameter required for .zip, .msi, .pkg and .dmg files
 
 ### buildNumber
+
 Build number parameter required for macOS .pkg and .dmg files
 
 ### `releaseNotes`
@@ -49,6 +51,14 @@ If set to true, shows useful debug information from the action execution.
 
 This action is Docker-based. It means **it can only execute on runners with a Linux operating system**.
 See Github Actions [documentation](https://docs.github.com/en/actions/creating-actions/about-actions#docker-container-actions) for details.
+
+## Supported Evnvironment Variables
+
+This action support environment variables for convenience. ([setting-an-environment-variable](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable))
+
+| Env Var                   | Description                        |
+| ------------------------- | ---------------------------------- |
+| `APPCENTER_DOWNLOAD_LINK` | URL to download Artifact uploaded. |
 
 ## Sample usage
 
