@@ -1,6 +1,6 @@
 name: "App Center"
 description: "GitHub Action that uploads artefacts for Visual Studio App Center"
-author: "Wojciech Zięba <@wzieba>"
+author: "Bedivere <@thelionx>, forked from Wojciech Zięba <@wzieba>"
 inputs:
   appName:
     description: "App name followed by username e.g. wzieba/Sample-App"
@@ -12,7 +12,7 @@ inputs:
     description: "Distribution group"
     required: true
   file:
-    description: "Artefact to upload (.apk or .ipa)"
+    description: "Artefact to upload (.apk .ipa .zip)"
     required: true
   buildVersion:
     description: "Build version parameter required for .zip, .msi, .pkg and .dmg files"
